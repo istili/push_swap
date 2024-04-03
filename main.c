@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 22:18:02 by istili            #+#    #+#             */
-/*   Updated: 2024/03/25 03:15:01 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/02 20:53:01 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,10 @@ int	main(int ac, char **av)
 			easy(&a);
 		else if (stack_len(&a) == 4)
 			sort_for(&a, &b);
+		else if (stack_len(&a) == 5)
+			sort_fiv(&a, &b);
 		else
-			QuickSort(&a);
+			sort_stack(&a, &b);
 	}
 	puts("stack a:\n");
 	print_stack(&a);

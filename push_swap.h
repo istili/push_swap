@@ -6,15 +6,14 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 22:05:19 by istili            #+#    #+#             */
-/*   Updated: 2024/03/25 03:14:29 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/03 02:22:00 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H	
 # define PUSH_SWAP_H
 
-#include <libc.h>
-#include <unistd.h>
+# include <unistd.h>
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -23,7 +22,12 @@ typedef struct s_node
 {
 	struct s_node	*next;
 	struct s_node	*prv;
+	struct s_node	*target;
 	int				data;
+	int				index;
+	int				above_median;
+	int				cheapest;
+	int				cost;
 }	t_node;
 
 typedef struct s_stack
@@ -57,7 +61,8 @@ t_node	*find_head(t_node *head);
 void	easy(t_stack **a);
 t_node	easy2(t_stack **a);
 void	sort_for(t_stack **a, t_stack **b);
-void	QuickSort(t_stack **a);
+void	sort_fiv(t_stack **a, t_stack **b);
+void	sort_stack(t_stack **a, t_stack **b);
 void	freee(t_stack *stack);
 void	stack(t_stack **b);
 void	check(t_stack **stack);
@@ -70,5 +75,12 @@ int		ft_isdigit(int c);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_strjoin(char *line, char *bufr);
+
+void	current_index(t_stack *stack);
+void	set_target_a(t_stack **a, t_stack **b);
+void	cost_analysis_a(t_stack **a, t_stack **b);
+void	set_cheapest(t_stack *stack);
+void	set_target_b(t_stack **a, t_stack **b);
+void	min_on_top(t_stack **stack);
 
 #endif
