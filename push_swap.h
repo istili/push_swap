@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 22:05:19 by istili            #+#    #+#             */
-/*   Updated: 2024/04/03 02:22:00 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/04 01:46:58 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,8 @@ typedef struct s_node
 {
 	struct s_node	*next;
 	struct s_node	*prv;
-	struct s_node	*target;
 	int				data;
-	int				index;
-	int				above_median;
-	int				cheapest;
-	int				cost;
+	int				target;
 }	t_node;
 
 typedef struct s_stack

@@ -5,143 +5,132 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 20:53:56 by istili            #+#    #+#             */
-/*   Updated: 2024/04/03 02:22:09 by istili           ###   ########.fr       */
+/*   Created: 2024/04/03 20:40:33 by istili            #+#    #+#             */
+/*   Updated: 2024/04/04 01:48:03 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_node_a(t_stack **a, t_stack **b)
+int	index(t_node *head, t_node *node)
 {
-	current_index(*a);
-	current_index(*b);
-	set_target_a(a, b);
-	cost_analysis_a(a, b);
-	set_cheapest(*a);
-}
+	int	i;
 
-t_node	*get_cheapest(t_stack *stack)
-{
-	t_node	*head;
-
-	head = stack->head;
-	if (!stack)
-		return (NULL);
-	while (head)
+	i = 0;
+	while (head != node)
 	{
-		if (head->cheapest)
-			return (head);
+		i++;
 		head = head->next;
 	}
-	return (NULL);
+	return (i);
 }
 
-static void	rotate_both(t_stack **a, t_stack **b, t_node *chep_node)
+static t_node	*find_min(t_stack *stack) // 5 6 2 3 -11 //min:5
 {
-	t_node	*head_a;
-	t_node	*head_b;
+	int		min;
+	t_node	*tail;
+	t_node	*min_node;
 
-	head_a = (*a)->head;
-	head_b = (*b)->head;
-	while (head_b != chep_node->target && head_a != chep_node)
+	tail = stack->tail;
+	min = tail->data;
+	min_node = tail;
+	while (tail)
 	{
-		rr(a, b);
-		current_index(*a);
-		current_index(*b);
+		if (min > tail->data)
+		{
+			min_node = tail;
+			min = tail->data;
+		}
+		tail = tail->prv;
 	}
+	return (tail);
 }
 
-static void	rev_rotate_both(t_stack **a, t_stack **b, t_node *chep_node)
+static t_node	*find_max(t_stack *stack) // -1 90 100 6 33 
 {
-	t_node	*head_b;
-	t_node	*head_a;
+	int		max;
+	t_node	*head;
+	t_node	*max_node;
 
-	head_b = (*b)->head;
-	head_a = (*a)->head;
-	while (head_b != chep_node->target && head_a != chep_node)
-		rr(a, b);
-	current_index(*a);
-	current_index(*b);
+	head = stack->head;
+	max = head->data;
+	max_node = head;
+	while (head)
+	{
+		if (max < head->data)
+		{
+			max_node = head;
+			max = head->data;
+		}
+		head = head->next;
+	}
+	return (head);
 }
 
-static void	prep_for_push(t_stack **stack, t_node *top, char name)
+int	find_target(t_stack **b, int data)
 {
 	t_node	*head;
+	t_node	*tail;
 
-	head = (*stack)->head;
-	while (head != top)
+	head = (*b)->head;
+	tail = (*b)->tail;
+	if (data > find_max(*b)->data || data < find_min(*b)->data)
+		return (index((*b)->head, find_max(*b)->data));
+	if (data > head->data && data < tail->data)
+		return (0);
+	while (head)
 	{
-		if (name == 'a')
-		{
-			if (top->above_median)
-				ra(stack);
-			else
-				rra(stack);
-		}
-		else if (name == 'b')
-		{
-			if (top->above_median)
-				rb(stack);
-			else
-				rrb(stack);
-		}
+		if (head->data > data && data > head->next->data)
+			return (index((*b)->head, head->next));
+		head = head->next;
 	}
 }
 
-static void	move_a_to_b(t_stack **a, t_stack **b)
+t_node	*fin_cheap(t_stack **a, t_stack **b)
 {
-	t_node	*chep_node;
-
-	chep_node = get_cheapest(*a);
-	if (chep_node->above_median && chep_node->target->above_median) // above
-		rotate_both(a, b, chep_node);
-	else if (!(chep_node->above_median) && !(chep_node->target->above_median)) //below
-		rev_rotate_both(a, b, chep_node);
-	prep_for_push(a, chep_node, 'a');
-	prep_for_push(b, chep_node->target, 'b');
-	pb(a, b);
-}
-
-static void	move_b_to_a(t_stack **a, t_stack **b)
-{
+	t_node	*head_a;
 	t_node	*head_b;
 
+	head_a = (*a)->head;
 	head_b = (*b)->head;
-	prep_for_push(a, head_b->target, 'a');
-	pa(a, b);
-}
-
-void	init_node_b(t_stack *a, t_stack *b)
-{
-	current_index(a);
-	current_index(b);
-	set_target_b(&a, &b);
+	if (head_a->target == head_b)
+		return (head_b);
+	while (head_a)
+	{
+		
+	}
 }
 
 void	sort_stack(t_stack **a, t_stack **b)
 {
-	int	len;
+	int		len;
+	t_node	*head_a;
 
 	len = stack_len(a);
-	if (len > 3 && !sorted(a))
-		pb(a, b);
+	pb(a, b);
 	len--;
-	if (len > 3 && !sorted(a))
-		pb(a, b);
+	pb(a, b);
 	len--;
-	while (len > 3 && !sorted(a))
+	head_a = (*a)->head;
+	while (len > 3)
 	{
-		init_node_a(a, b);
-		move_a_to_b(a, b);
+		find_target(b, head_a->data);
+		find_cheap(a, b);
 		len--;
+		head_a = head_a->next;
 	}
 	easy(a);
-	while (*b)
-	{
-		init_node_b(*a, *b);
-		move_b_to_a(a, b);
-	}
-	current_index(*a);
-	min_on_top(a);
 }
+//stack a:
+// 3
+// 99
+// -91000000
+// 33
+
+// stack b:
+// 55
+// 7
+// 5
+// 3
+// 2
+// 555
