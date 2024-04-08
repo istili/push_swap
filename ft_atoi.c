@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libc.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 22:10:46 by istili            #+#    #+#             */
-/*   Updated: 2024/03/23 21:14:03 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/08 04:35:02 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static int	check_sign(const char *str, int i)
 int	ft_atoi(const char *str)
 {
 	long	nb;
-	long	tmp;
 	int		sign;
 	int		i;
 
@@ -43,12 +42,12 @@ int	ft_atoi(const char *str)
 	nb = 0;
 	while (ft_isdigit(str[i]))
 	{
-		tmp = nb * 10 + str[i] - '0';
-		if (nb > tmp && sign == 1)
-			return (-1);
-		if (nb > tmp && sign == -1)
-			return (0);
-		nb = tmp;
+		nb = nb * 10 + str[i] - '0';
+		if (nb > INT_MAX)
+		{
+			write(2, "Error\n", 6);
+			exit(1);
+		}
 		i++;
 	}
 	return (nb * sign);

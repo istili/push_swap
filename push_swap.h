@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 22:05:19 by istili            #+#    #+#             */
-/*   Updated: 2024/04/04 01:46:58 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/08 04:12:25 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,19 @@
 # include <stdio.h>
 # include <stdlib.h>
 
+enum	e_move{
+	RARB,
+	RR,
+	RRR,
+};
+
 typedef struct s_node
 {
 	struct s_node	*next;
 	struct s_node	*prv;
 	int				data;
-	int				target;
+	int				count;
+	enum e_move		act;
 }	t_node;
 
 typedef struct s_stack
@@ -78,5 +85,11 @@ void	cost_analysis_a(t_stack **a, t_stack **b);
 void	set_cheapest(t_stack *stack);
 void	set_target_b(t_stack **a, t_stack **b);
 void	min_on_top(t_stack **stack);
+void	count_act(t_stack **a, t_stack **b);
+int		ft_index(t_node *head, t_node *node);
+int		find_target(t_stack **b, int data);
+void	do_rr(t_stack **a, t_stack **b, t_node *cheapest);
+void	do_rrr(t_stack **a, t_stack **b, t_node *cheapest);
+void	do_rarb(t_stack **a, t_stack **b, t_node *cheapest);
 
 #endif

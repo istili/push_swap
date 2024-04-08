@@ -6,13 +6,13 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 20:40:33 by istili            #+#    #+#             */
-/*   Updated: 2024/04/04 01:48:03 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/08 04:20:13 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	index(t_node *head, t_node *node)
+int	ft_index(t_node *head, t_node *node)
 {
 	int	i;
 
@@ -43,7 +43,7 @@ static t_node	*find_min(t_stack *stack) // 5 6 2 3 -11 //min:5
 		}
 		tail = tail->prv;
 	}
-	return (tail);
+	return (min_node);
 }
 
 static t_node	*find_max(t_stack *stack) // -1 90 100 6 33 
@@ -64,7 +64,7 @@ static t_node	*find_max(t_stack *stack) // -1 90 100 6 33
 		}
 		head = head->next;
 	}
-	return (head);
+	return (max_node);
 }
 
 int	find_target(t_stack **b, int data)
@@ -75,49 +75,68 @@ int	find_target(t_stack **b, int data)
 	head = (*b)->head;
 	tail = (*b)->tail;
 	if (data > find_max(*b)->data || data < find_min(*b)->data)
-		return (index((*b)->head, find_max(*b)->data));
+		return (ft_index((*b)->head, find_max(*b)));
 	if (data > head->data && data < tail->data)
 		return (0);
-	while (head)
+	while (head->next)
 	{
-		if (head->data > data && data > head->next->data)
-			return (index((*b)->head, head->next));
+		if (data < head->data && data > head->next->data)
+			return (ft_index((*b)->head, head->next));
 		head = head->next;
 	}
+	return (0);
 }
 
-t_node	*fin_cheap(t_stack **a, t_stack **b)
+t_node	*find_cheapest(t_stack **a)
 {
 	t_node	*head_a;
-	t_node	*head_b;
+	t_node	*cheapest;
 
 	head_a = (*a)->head;
-	head_b = (*b)->head;
-	if (head_a->target == head_b)
-		return (head_b);
+	cheapest = head_a;
 	while (head_a)
 	{
-		
+		if (head_a->count <= cheapest->count)
+			cheapest = head_a;
+		head_a = head_a->next;
 	}
+	return (cheapest);
+}
+
+void	push_cheapest(t_stack **a, t_stack **b, t_node *cheapest)
+{
+	if (cheapest->act == RARB)
+		do_rarb(a, b, cheapest);
+	else if (cheapest->act == RR)
+		do_rr(a, b, cheapest);
+	else if (cheapest->act == RRR)
+		do_rrr(a, b, cheapest);
 }
 
 void	sort_stack(t_stack **a, t_stack **b)
 {
-	int		len;
-	t_node	*head_a;
+	t_node	*cheapest;
 
-	len = stack_len(a);
 	pb(a, b);
-	len--;
 	pb(a, b);
-	len--;
-	head_a = (*a)->head;
-	while (len > 3)
+	puts("\nstack a:\n");
+	print_stack(a);
+	puts("\nstack b:\n");
+	print_stack(b);
+	while (stack_len(a) > 3)
 	{
-		find_target(b, head_a->data);
-		find_cheap(a, b);
-		len--;
-		head_a = head_a->next;
+		count_act(a, b);
+		puts("\nstack a:\n");
+		print_stack(a);
+		puts("\nstack b:\n");
+		print_stack(b);
+		cheapest = find_cheapest(a);
+		printf("cheapest: %d\n", cheapest->data);
+		push_cheapest(a, b, cheapest);
+		puts("\nstack a:\n");
+		print_stack(a);
+		puts("\nstack b:\n");
+		print_stack(b);
 	}
 	easy(a);
 }

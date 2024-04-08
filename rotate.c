@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 02:32:34 by istili            #+#    #+#             */
-/*   Updated: 2024/03/21 21:23:54 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/08 03:54:21 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	rotate(t_stack **a)
 		head->prv = tail;
 		head->next = NULL;
 		tail->next = head;
-		tail = head;
+		(*a)->tail = head;
 	}
 }
 
@@ -44,7 +44,7 @@ void	ra(t_stack **a)
 
 void	rr(t_stack **a, t_stack **b)
 {
-	ra(a);
-	rb(b);
+	rotate(a);
+	rotate(b);
 	write(1, "rr\n", 3);
 }

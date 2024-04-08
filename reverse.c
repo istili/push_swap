@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 20:23:37 by istili            #+#    #+#             */
-/*   Updated: 2024/03/21 21:24:16 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/08 03:56:06 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	rrb(t_stack **b)
 void	rrr(t_stack **a, t_stack **b)
 {
 	if (a)
-		rra(a);
+		reverse(a);
 	if (b)
-		rrb(b);
+		reverse(b);
 	write(1, "rrr\n", 4);
 }

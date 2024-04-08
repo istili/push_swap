@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 22:25:15 by istili            #+#    #+#             */
-/*   Updated: 2024/03/23 22:46:48 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/08 03:51:11 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void	add_node(t_stack *stack, int nbr)
 		return ;
 	node->next = NULL;
 	node->data = nbr;
+	node->act = -1;
+	node->count = -1;
 	last_node = find_last(stack);
 	last_node->next = node;
 	node->prv = last_node;
@@ -51,8 +53,10 @@ void	add_bigging(t_stack **stack, int val)
 		return ;
 	new_node->data = val;
 	new_node->prv = NULL;
-	if ((*stack))
-		new_node->next = (*stack)->head;
+	new_node->next = NULL;
+	new_node->act = -1;
+	new_node->count = -1;
+	new_node->next = (*stack)->head;
 	if ((*stack)->head)
 		(*stack)->head->prv = new_node;
 	else
@@ -94,6 +98,8 @@ t_stack	*stack_init(t_stack *a, char **argv)
 	a->head->next = NULL;
 	a->head->prv = NULL;
 	a->head->data = ft_atoi(argv[i++]);
+	a->head->count = -1;
+	a->head->act = -1;
 	a->tail = a->head;
 	while (argv[i])
 	{
