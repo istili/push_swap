@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 00:11:49 by istili            #+#    #+#             */
-/*   Updated: 2024/04/08 03:46:28 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/09 00:31:44 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	sorted(t_stack **stack)
 
 	cur = (*stack)->head;
 	if (!cur || !cur->next)
-		return (0);
+		return (1);
 	while (cur->next)
 	{
 		if (cur->data > cur->next->data)
