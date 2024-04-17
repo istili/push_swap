@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 22:18:02 by istili            #+#    #+#             */
-/*   Updated: 2024/04/09 04:44:13 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/17 16:32:06 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	f(void)
 {
-	system("leaks a.out");
+	system("leaks ./push_swap");
 }
 
 void	print_stack(t_stack **stack)
@@ -89,27 +89,27 @@ int	main(int ac, char **av)
 	{
 		if (args(split_args[i]) == 0)
 		{
-			write(2, "Error1\n", 7);
+			write(2, "Error\n", 6);
 			return (0);
 		}
 		i++;
 	}
 	if (split_args[0] == 0)
 	{
-		write(2, "Error2\n", 7);
+		write(2, "Error\n", 6);
 		return (0);
 	}
 	a = stack_init(a, split_args);
 	stack(&b);
 	if (check_double(&a) == 0)
 	{
-		write(2, "Error3\n", 7);
+		write(2, "Error\n", 6);
 		freee(a);
 		return (0);
 	}
-/* 	puts("stack a:\n");
-	print_stack(&a);
-	puts("\n"); */
+ 	// puts("stack a:\n");
+	// print_stack(&a);
+	// puts("\n");
 	if (!sorted(&a))
 	{
 		if (stack_len(&a) == 2)
@@ -123,10 +123,10 @@ int	main(int ac, char **av)
 		else
 			sort_stack(&a, &b);
 	}
-	/* puts("stack a:\n");
-	print_stack(&a);
-	puts("stack b:\n");
-	print_stack(&b); */
+	// puts("stack a:\n");
+	// print_stack(&a);
+	// puts("stack b:\n");
+	// print_stack(&b);
 	freee(b);
 	freee(a);
 }

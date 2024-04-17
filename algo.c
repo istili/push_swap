@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 04:33:37 by istili            #+#    #+#             */
-/*   Updated: 2024/03/25 21:34:19 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/17 16:43:25 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	make_it_top(t_stack	**stack)
 	head = (*stack)->head;
 	tail = (*stack)->tail;
 	min = find_smal(stack);
-
 	if (min == head->next->data)
 	{
 		sa(stack);
@@ -54,6 +53,12 @@ void	make_it_top(t_stack	**stack)
 		rra(stack);
 		return ;
 	}
+	if (ft_index((*stack)->head, find_min(*stack)) > stack_len(stack) / 2)
+		while ((*stack)->head->data != find_min(*stack)->data)
+			rra(stack);
+	else
+		while ((*stack)->head->data != find_min(*stack)->data)
+			ra(stack);
 }
 
 void	sort_for(t_stack **a, t_stack **b) // 4 2 5 <-/1 ? /-> 4  5 2 1
@@ -67,7 +72,6 @@ void	sort_for(t_stack **a, t_stack **b) // 4 2 5 <-/1 ? /-> 4  5 2 1
 	print_stack(a);
 	pa(a, b);
 }
-
 
 void	sort_fiv(t_stack **a, t_stack **b)
 {

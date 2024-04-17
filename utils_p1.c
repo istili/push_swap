@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_p2.c                                         :+:      :+:    :+:   */
+/*   utils_p1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 01:31:21 by istili            #+#    #+#             */
-/*   Updated: 2024/04/09 01:50:06 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/17 16:47:55 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void	do_rrr(t_stack **a, t_stack **b, t_node *cheapest)
 
 void	do_rrr_a(t_stack **a, t_stack**b, t_node*cheapest)
 {
-	while ((*b)->head->data != cheapest->data || find_target_a(a, cheapest->data))
+	while ((*b)->head->data != cheapest->data
+		|| find_target_a(a, cheapest->data))
 	{
 		if ((*b)->head->data == cheapest->data)
 			break ;
@@ -90,7 +91,8 @@ void	do_rr(t_stack **a, t_stack **b, t_node *cheapest)
 
 void	do_rr_a(t_stack **a, t_stack**b, t_node*cheapest)
 {
-	while ((*b)->head->data != cheapest->data || find_target_a(a, cheapest->data))
+	while ((*b)->head->data != cheapest->data
+		|| find_target_a(a, cheapest->data))
 	{
 		if ((*b)->head->data == cheapest->data)
 			break ;
@@ -152,7 +154,7 @@ void	do_rarb(t_stack **a, t_stack **b, t_node *cheapest)
 		while (find_target(b, cheapest->data) != 0)
 		{
 			if (!find_target(b, cheapest->data))
-				break ;	
+				break ;
 			rb(b);
 		}
 	}
@@ -184,7 +186,7 @@ void	do_rarb_a(t_stack **a, t_stack **b, t_node *cheapest)
 	}
 	if (find_target_a(a, cheapest->data) > stack_len(a) / 2)
 	{
-		while(find_target_a(a, cheapest->data))
+		while (find_target_a(a, cheapest->data))
 		{
 			if (!find_target_a(a, cheapest->data))
 				break ;
@@ -193,7 +195,7 @@ void	do_rarb_a(t_stack **a, t_stack **b, t_node *cheapest)
 	}
 	else
 	{
-		while(find_target_a(a, cheapest->data))
+		while (find_target_a(a, cheapest->data))
 		{
 			if (!find_target_a(a, cheapest->data))
 				break ;

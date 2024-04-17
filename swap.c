@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 05:09:34 by istili            #+#    #+#             */
-/*   Updated: 2024/03/22 01:41:13 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/17 10:57:14 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ void	sb(t_stack **b)
 
 void	ss(t_stack **a, t_stack **b)
 {
-	// if ((*b)->head == NULL || (*b)->head->next == NULL)
-	// 	return ;
 	sa(a);
 	sb(b);
 	write(1, "ss\n", 3);

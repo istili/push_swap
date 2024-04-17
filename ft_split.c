@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:13:11 by istili            #+#    #+#             */
-/*   Updated: 2024/04/09 04:11:23 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/17 16:34:41 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	*ft_free(char **str, int i)
 	return (NULL);
 }
 
-char	**ft_split(char const *s, char c) // "0 1 7" " 54 54 35" 0 -1 "55 84 956352 3238 21 "
+char	**ft_split(char const *s, char c)
 {
 	char	**str;
 	size_t	i;
