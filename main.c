@@ -107,9 +107,9 @@ int	main(int ac, char **av)
 		freee(a);
 		return (0);
 	}
-	puts("stack a:\n");
+/* 	puts("stack a:\n");
 	print_stack(&a);
-	puts("\n");
+	puts("\n"); */
 	if (!sorted(&a))
 	{
 		if (stack_len(&a) == 2)
@@ -123,10 +123,10 @@ int	main(int ac, char **av)
 		else
 			sort_stack(&a, &b);
 	}
-	puts("stack a:\n");
+	/* puts("stack a:\n");
 	print_stack(&a);
 	puts("stack b:\n");
-	print_stack(&b);
+	print_stack(&b); */
 	freee(b);
 	freee(a);
 }

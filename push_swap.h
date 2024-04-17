@@ -79,6 +79,8 @@ size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_strjoin(char *line, char *bufr);
 
+t_node	*find_max(t_stack *stack);
+t_node	*find_min(t_stack *stack);
 void	current_index(t_stack *stack);
 void	set_target_a(t_stack **a, t_stack **b);
 void	cost_analysis_a(t_stack **a, t_stack **b);
@@ -91,5 +93,10 @@ int		find_target(t_stack **b, int data);
 void	do_rr(t_stack **a, t_stack **b, t_node *cheapest);
 void	do_rrr(t_stack **a, t_stack **b, t_node *cheapest);
 void	do_rarb(t_stack **a, t_stack **b, t_node *cheapest);
+int		find_target_a(t_stack **a, int data);
+void	count_act_a(t_stack **a, t_stack **b);
+void	do_rrr_a(t_stack **a, t_stack**b, t_node*cheapest);
+void	do_rr_a(t_stack **a, t_stack**b, t_node*cheapest);
+void	do_rarb_a(t_stack **a, t_stack**b, t_node*cheapest);
 
 #endif

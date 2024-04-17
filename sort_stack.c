@@ -25,7 +25,7 @@ int	ft_index(t_node *head, t_node *node)
 	return (i);
 }
 
-static t_node	*find_min(t_stack *stack) // 5 6 2 3 -11 //min:5
+t_node	*find_min(t_stack *stack) // 5 6 2 3 -11 //min:5
 {
 	int		min;
 	t_node	*tail;
@@ -46,7 +46,7 @@ static t_node	*find_min(t_stack *stack) // 5 6 2 3 -11 //min:5
 	return (min_node);
 }
 
-static t_node	*find_max(t_stack *stack) // -1 90 100 6 33 
+t_node	*find_max(t_stack *stack) // -1 90 100 6 33 
 {
 	int		max;
 	t_node	*head;
@@ -113,32 +113,55 @@ void	push_cheapest(t_stack **a, t_stack **b, t_node *cheapest)
 		do_rrr(a, b, cheapest);
 }
 
+void	push_cheapest_a(t_stack **a, t_stack **b, t_node *cheapest)
+{
+	if (cheapest->act == RARB)
+		do_rarb_a(a, b, cheapest);
+	else if (cheapest->act == RR)
+		do_rr_a(a, b, cheapest);
+	else if (cheapest->act == RRR)
+		do_rrr_a(a, b, cheapest);
+}
+
 void	sort_stack(t_stack **a, t_stack **b)
 {
 	t_node	*cheapest;
 
 	pb(a, b);
 	pb(a, b);
-	puts("\nstack a:\n");
+/* 	puts("\nstack a:\n");
 	print_stack(a);
 	puts("\nstack b:\n");
-	print_stack(b);
+	print_stack(b); */
 	while (stack_len(a) > 3)
 	{
 		count_act(a, b);
-		puts("\nstack a:\n");
+/* 		puts("\nstack a:\n");
 		print_stack(a);
 		puts("\nstack b:\n");
-		print_stack(b);
+		print_stack(b); */
 		cheapest = find_cheapest(a);
-		printf("cheapest: %d\n", cheapest->data);
+		/* printf("cheapest: %d\n", cheapest->data); */
 		push_cheapest(a, b, cheapest);
-		puts("\nstack a:\n");
+/* 		puts("\nstack a:\n");
 		print_stack(a);
 		puts("\nstack b:\n");
-		print_stack(b);
+		print_stack(b); */
 	}
 	easy(a);
+	while (stack_len(b) > 0)
+	{
+		count_act_a(a, b);
+		cheapest = find_cheapest(b);
+		push_cheapest_a(a, b, cheapest);
+	}
+	if (ft_index((*a)->head, find_min(*a)) > stack_len(a) / 2)
+		while ((*a)->head->data != find_min(*a)->data)
+			rra(a);
+	else
+		while ((*a)->head->data != find_min(*a)->data)
+			ra(a);
+	/* print_stack(a); */
 }
 //stack a:
 // 3
