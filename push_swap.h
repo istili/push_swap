@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 22:05:19 by istili            #+#    #+#             */
-/*   Updated: 2024/04/19 14:00:16 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/19 16:57:27 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,8 @@ void	do_rarb_a(t_stack **a, t_stack**b, t_node*cheapest);
 
 int		get_medain(t_stack **stack);
 void	push_to_b(t_stack **a, t_stack **b, int medain);
+void	sort_500(t_stack **a, t_stack **b);
+t_node	*find_cheapest(t_stack **a);
+void	push_cheapest_a(t_stack **a, t_stack **b, t_node *cheapest);
 
 #endif

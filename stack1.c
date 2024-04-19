@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:05:30 by istili            #+#    #+#             */
-/*   Updated: 2024/04/19 15:11:15 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/19 15:17:57 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	do_rr(t_stack **a, t_stack **b, t_node *cheapest)
 	pb(a, b);
 }
 
-static void	ft_continue(t_stack **a, t_stack **b, t_node *cheapest)
+static void	ft_continue(t_stack **b, t_node *cheapest)
 {
 	if (find_target(b, cheapest->data) > stack_len(b) / 2)
 	{
@@ -110,6 +110,6 @@ void	do_rarb(t_stack **a, t_stack **b, t_node *cheapest)
 			ra(a);
 		}
 	}
-	ft_continue(a, b, cheapest);
+	ft_continue(b, cheapest);
 	pb(a, b);
 }
