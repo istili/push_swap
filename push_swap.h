@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 22:05:19 by istili            #+#    #+#             */
-/*   Updated: 2024/04/17 16:45:43 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/19 14:00:16 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ char	*ft_strjoin(char *line, char *bufr);
 t_node	*find_max(t_stack *stack);
 t_node	*find_min(t_stack *stack);
 int		ft_index(t_node *head, t_node *node);
+int		find_smal(t_stack **stack);
 
 // pushing to b
 void	count_act(t_stack **a, t_stack **b);
@@ -98,5 +99,8 @@ int		find_target_a(t_stack **a, int data);
 void	do_rrr_a(t_stack **a, t_stack**b, t_node*cheapest);
 void	do_rr_a(t_stack **a, t_stack**b, t_node*cheapest);
 void	do_rarb_a(t_stack **a, t_stack**b, t_node*cheapest);
+
+int		get_medain(t_stack **stack);
+void	push_to_b(t_stack **a, t_stack **b, int medain);
 
 #endif

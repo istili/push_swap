@@ -6,27 +6,11 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 04:33:37 by istili            #+#    #+#             */
-/*   Updated: 2024/04/17 16:43:25 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/19 14:02:38 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	find_smal(t_stack **stack)
-{
-	t_node	*head;
-	int		min;
-
-	head = (*stack)->head;
-	min = (*stack)->head->data;
-	while (head)
-	{
-		if (min > head->data)
-			min = head->data;
-		head = head->next;
-	}
-	return (min);
-}
 
 void	make_it_top(t_stack	**stack)
 {
@@ -42,17 +26,6 @@ void	make_it_top(t_stack	**stack)
 		sa(stack);
 		return ;
 	}
-	if (min == tail->data)
-	{
-		rra(stack);
-		return ;
-	}
-	if (min == tail->prv->data)
-	{
-		rra(stack);
-		rra(stack);
-		return ;
-	}
 	if (ft_index((*stack)->head, find_min(*stack)) > stack_len(stack) / 2)
 		while ((*stack)->head->data != find_min(*stack)->data)
 			rra(stack);
@@ -61,7 +34,7 @@ void	make_it_top(t_stack	**stack)
 			ra(stack);
 }
 
-void	sort_for(t_stack **a, t_stack **b) // 4 2 5 <-/1 ? /-> 4  5 2 1
+void	sort_for(t_stack **a, t_stack **b)
 {
 	t_node	*head;
 
@@ -87,6 +60,24 @@ void	sort_fiv(t_stack **a, t_stack **b)
 	pa(a, b);
 }
 
+static void	check(t_stack **a, t_node *head)
+{
+	if (head->data < head->next->data
+		&& head->data < head->next->next->data
+		&& head->next->data > head->next->next->data)
+	{
+		sa(a);
+		ra(a);
+		return ;
+	}
+	if (head->data < head->next->data
+		&& head->data > head->next->next->data)
+	{
+		rra(a);
+		return ;
+	}
+}
+
 void	easy(t_stack **a)
 {
 	t_node	*head;
@@ -110,16 +101,5 @@ void	easy(t_stack **a)
 		ra(a);
 		return ;
 	}
-	if (head->data < head->next->data && head->data < head->next->next->data
-		&& head->next->data > head->next->next->data)
-	{
-		sa(a);
-		ra(a);
-		return ;
-	}
-	if (head->data < head->next->data && head->data > head->next->next->data)
-	{
-		rra(a);
-		return ;
-	}
+	check(a, head);
 }

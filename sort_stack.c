@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 20:40:33 by istili            #+#    #+#             */
-/*   Updated: 2024/04/17 16:38:17 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/19 14:50:22 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,15 @@ void	push_cheapest_a(t_stack **a, t_stack **b, t_node *cheapest)
 void	sort_stack(t_stack **a, t_stack **b)
 {
 	t_node	*cheapest;
+	int		medain_data;
+	int		size;
 
-	pb(a, b);
-	pb(a, b);
+	size = -1;
+	medain_data = get_medain(a);
+	while (++size < stack_len(a))
+		push_to_b(a, b, medain_data);
 	while (stack_len(a) > 3)
-	{
-		count_act(a, b);
-		cheapest = find_cheapest(a);
-		// printf("cheapest: %d\n", cheapest->data);
-		push_cheapest(a, b, cheapest);
-	}
+		pb(a, b);
 	easy(a);
 	while (stack_len(b) > 0)
 	{
