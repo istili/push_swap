@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/23 21:16:42 by istili            #+#    #+#             */
-/*   Updated: 2024/04/19 14:39:04 by istili           ###   ########.fr       */
+/*   Created: 2024/04/26 11:29:51 by istili            #+#    #+#             */
+/*   Updated: 2024/04/26 11:33:26 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	ft_isdigit(int c)
 {
@@ -19,9 +19,9 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-size_t	ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	if (!s)

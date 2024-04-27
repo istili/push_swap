@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   swap_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 05:09:34 by istili            #+#    #+#             */
-/*   Updated: 2024/04/17 10:57:14 by istili           ###   ########.fr       */
+/*   Created: 2024/04/26 14:24:53 by istili            #+#    #+#             */
+/*   Updated: 2024/04/27 10:59:59 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	sa(t_stack **a)
 {
 	int		i;
 	t_node	*node;
 
+	if (stack_len(a) < 2)
+		return ;
 	i = 0;
 	node = (*a)->head;
 	if (node == NULL || node->next == NULL)
@@ -24,7 +26,6 @@ void	sa(t_stack **a)
 	i = node->data;
 	node->data = node->next->data;
 	node->next->data = i;
-	write(1, "sa\n", 3);
 }
 
 void	sb(t_stack **b)
@@ -32,6 +33,8 @@ void	sb(t_stack **b)
 	int		i;
 	t_node	*node;
 
+	if (stack_len(b) < 2)
+		return ;
 	i = 0;
 	node = (*b)->head;
 	if (node == NULL || node->next == NULL)
@@ -39,12 +42,12 @@ void	sb(t_stack **b)
 	i = node->data;
 	node->data = node->next->data;
 	node->next->data = i;
-	write(1, "sb\n", 3);
 }
 
 void	ss(t_stack **a, t_stack **b)
 {
+	if (stack_len(a) < 2 && stack_len(b) < 2)
+		return ;
 	sa(a);
 	sb(b);
-	write(1, "ss\n", 3);
 }

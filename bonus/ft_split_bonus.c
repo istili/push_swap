@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/23 21:13:11 by istili            #+#    #+#             */
-/*   Updated: 2024/04/17 16:34:41 by istili           ###   ########.fr       */
+/*   Created: 2024/04/26 11:28:37 by istili            #+#    #+#             */
+/*   Updated: 2024/04/26 14:41:13 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 static char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -74,7 +74,7 @@ static size_t	ft_count(char const *s, char c)
 	return (i);
 }
 
-void	*ft_free(char **str, int i)
+void	*ft_fre(char **str, int i)
 {
 	while (i >= 0)
 	{
@@ -104,7 +104,7 @@ char	**ft_split(char const *s, char c)
 			j++;
 		str[i] = ft_substr(s, j, ft_count((&s[j]), c));
 		if (str[i] == NULL)
-			return (ft_free(str, i));
+			return (ft_fre(str, i));
 		i++;
 		j += ft_count((s + j), c);
 	}
