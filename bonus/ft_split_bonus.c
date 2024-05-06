@@ -6,11 +6,21 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 11:28:37 by istili            #+#    #+#             */
-/*   Updated: 2024/04/26 14:41:13 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/27 17:44:45 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
+
+static int	lengh(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
 static char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -19,7 +29,7 @@ static char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	slen = ft_strlen(s);
+	slen = lengh(s);
 	if (start >= slen)
 	{
 		sub = malloc(1);
@@ -72,17 +82,6 @@ static size_t	ft_count(char const *s, char c)
 	while (s[i] && s[i] != c)
 		i++;
 	return (i);
-}
-
-void	*ft_fre(char **str, int i)
-{
-	while (i >= 0)
-	{
-		free(str[i]);
-		i--;
-	}
-	free(str);
-	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)

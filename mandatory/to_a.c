@@ -6,11 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:14:51 by istili            #+#    #+#             */
-/*   Updated: 2024/04/19 15:03:11 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/06 13:57:21 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "mandatory.h"
 
 int	mn(int a, int b)
 {
@@ -48,7 +49,7 @@ static void	checks(int	*nb_steps, t_node *head)
 	}
 }
 
-void	fill_node_b(t_node *head, t_stack **a, t_stack **b)
+void	fill_node_b(t_node *head_b, t_stack **a, t_stack **b)
 {
 	int		indx_b;
 	int		aim;
@@ -58,12 +59,12 @@ void	fill_node_b(t_node *head, t_stack **a, t_stack **b)
 
 	size_a = stack_len(a);
 	size_b = stack_len(b);
-	aim = find_target_a(a, head->data);
-	indx_b = ft_index((*b)->head, head);
+	aim = find_target_a(a, head_b->data);
+	indx_b = ft_index((*b)->head, head_b);
 	nb_steps[RARB] = mn(aim, size_a - aim) + mn(indx_b, size_b - indx_b) + 1;
 	nb_steps[RR] = mx(indx_b, aim) + 1;
 	nb_steps[RRR] = mx(size_a - aim, size_b - indx_b) + 1;
-	checks(nb_steps, head);
+	checks(nb_steps, head_b);
 }
 
 void	count_act_a(t_stack **a, t_stack **b)

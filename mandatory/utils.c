@@ -6,11 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 00:11:49 by istili            #+#    #+#             */
-/*   Updated: 2024/04/26 17:43:33 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/27 18:03:33 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "mandatory.h"
 
 int	sorted(t_stack **stack)
 {

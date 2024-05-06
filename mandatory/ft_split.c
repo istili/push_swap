@@ -6,11 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:13:11 by istili            #+#    #+#             */
-/*   Updated: 2024/04/17 16:34:41 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/27 14:25:38 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "mandatory.h"
 
 static char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

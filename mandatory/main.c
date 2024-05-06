@@ -6,20 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 22:18:02 by istili            #+#    #+#             */
-/*   Updated: 2024/04/27 11:48:51 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/28 13:04:37 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	f(void)
-{
-	// int	pid = getpid();
-	// char	*str = strdup("leaks ");
-	// char *str2 = ft_strjoin(str, ft_itoa(pid));
-	// system(str2);
-	system("leaks push_swap");
-}
+#include "mandatory.h"
 
 void	main_sort(t_stack **a, t_stack **b)
 {
@@ -47,17 +39,13 @@ void	main_checks(char **split_args)
 	{
 		if (args(split_args[i]) == 0)
 		{
-			write(2, "Error\n", 6);
 			free_array(split_args);
-			exit(1);
+			ft_puterror();
 		}
 		i++;
 	}
 	if (split_args[0] == 0)
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+		ft_puterror();
 }
 
 void	main_helper(t_stack **a, t_stack **b, char **split_args)
@@ -66,10 +54,9 @@ void	main_helper(t_stack **a, t_stack **b, char **split_args)
 	stack(b);
 	if (check_double(a) == 0)
 	{
-		write(2, "Error\n", 6);
-		free(b);
+		freee(*b);
 		freee(*a);
-		exit(1);
+		ft_puterror();
 	}
 }
 
@@ -96,9 +83,8 @@ int	main(int ac, char **av)
 	{
 		if (av[i][0] == '\0' || is_full_space(av[i]))
 		{
-			write(2, "Error\n", 6);
 			free(arr);
-			return (0);
+			ft_puterror();
 		}
 		arr = ft_strjoin(arr, av[i++]);
 	}
@@ -110,3 +96,12 @@ int	main(int ac, char **av)
 	freee(b);
 	freee(a);
 }
+
+// void	f(void)
+// {
+// 	// int	pid = getpid();
+// 	// char	*str = strdup("leaks ");
+// 	// char *str2 = ft_strjoin(str, ft_itoa(pid));
+// 	// system(str2);
+// 	system("leaks push_swap");
+// }

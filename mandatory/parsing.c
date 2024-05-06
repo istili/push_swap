@@ -6,11 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:02:26 by istili            #+#    #+#             */
-/*   Updated: 2024/04/25 14:06:43 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/27 18:03:06 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "mandatory.h"
 
 int	check_double(t_stack **stack)
 {
@@ -58,7 +59,7 @@ void	free_array(char **arr)
 	free(arr);
 }
 
-int		is_full_space(char *str)
+int	is_full_space(char *str)
 {
 	while (*str == '\t' || *str == ' ')
 		str++;

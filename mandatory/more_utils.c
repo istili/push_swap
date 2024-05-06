@@ -6,11 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 13:59:08 by istili            #+#    #+#             */
-/*   Updated: 2024/04/19 16:58:41 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/28 13:36:24 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "mandatory.h"
 
 int	find_target(t_stack **b, int data)
 {
@@ -39,10 +40,10 @@ int	find_target_a(t_stack **a, int data)
 
 	head = (*a)->head;
 	tail = (*a)->tail;
-	if (data < head->data && data > tail->data)
-		return (0);
 	if (data > find_max(*a)->data || data < find_min(*a)->data)
 		return (ft_index((*a)->head, find_min(*a)));
+	if (data < head->data && data > tail->data)
+		return (0);
 	while (head->next)
 	{
 		if (data > head->data && data < head->next->data)

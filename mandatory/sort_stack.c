@@ -6,11 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 20:40:33 by istili            #+#    #+#             */
-/*   Updated: 2024/04/19 16:55:53 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/27 14:26:16 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "mandatory.h"
 
 t_node	*find_cheapest(t_stack **a)
 {

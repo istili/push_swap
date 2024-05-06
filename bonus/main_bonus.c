@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 11:00:27 by istili            #+#    #+#             */
-/*   Updated: 2024/04/27 11:38:06 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/27 20:24:17 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,13 @@ void	main_checks(char **split_args)
 	{
 		if (args(split_args[i]) == 0)
 		{
-			write(2, "Error\n", 6);
 			free_arr(split_args);
-			exit(1);
+			ft_puterror();
 		}
 		i++;
 	}
 	if (split_args[0] == 0)
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+		ft_puterror();
 }
 
 void	main_helper(t_stack **a, t_stack **b, char **split_args)
@@ -42,10 +38,9 @@ void	main_helper(t_stack **a, t_stack **b, char **split_args)
 	stack(b);
 	if (check_double(a) == 0)
 	{
-		write(2, "Error\n", 6);
-		free(b);
+		freee(*b);
 		freee(*a);
-		exit(1);
+		ft_puterror();
 	}
 	line = get_next_line(0);
 	while (line)
@@ -59,14 +54,7 @@ void	main_helper(t_stack **a, t_stack **b, char **split_args)
 	else
 		write(1, "KO\n", 3);
 }
-void	f(void)
-{
-	// int	pid = getpid();
-	// char	*str = strdup("leaks ");
-	// char *str2 = ft_strjoin(str, ft_itoa(pid));
-	// system(str2);
-	system("leaks push_swap");
-}
+
 void	init_args(int *i, t_stack **a, t_stack **b, char **arr)
 {
 	*i = 1;
@@ -83,7 +71,6 @@ int	main(int ac, char **av)
 	char	**split_args;
 	char	*arr;
 
-	atexit(f);
 	init_args(&i, &a, &b, &arr);
 	if (ac == 1)
 		return (0);
@@ -91,9 +78,8 @@ int	main(int ac, char **av)
 	{
 		if (av[i][0] == '\0' || is_full_space(av[i]))
 		{
-			write(2, "Error\n", 6);
 			free(arr);
-			return (0);
+			ft_puterror();
 		}
 		arr = ft_strjoin(arr, av[i++]);
 	}
@@ -104,3 +90,13 @@ int	main(int ac, char **av)
 	freee(a);
 	freee(b);
 }
+
+// atexit(f);
+// void	f(void)
+// {
+// 	// int	pid = getpid();
+// 	// char	*str = strdup("leaks ");
+// 	// char *str2 = ft_strjoin(str, ft_itoa(pid));
+// 	// system(str2);
+// 	system("leaks push_swap");
+// }

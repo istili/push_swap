@@ -6,11 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 01:31:21 by istili            #+#    #+#             */
-/*   Updated: 2024/04/25 15:24:26 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/27 14:27:02 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "mandatory.h"
 
 void	do_rrr_a(t_stack **a, t_stack**b, t_node*cheapest)
 {

@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 15:47:44 by istili            #+#    #+#             */
-/*   Updated: 2024/04/27 11:26:25 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/27 17:51:18 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int			ft_strlen(const char *s);
 int			ft_atoi(char *str);
 char		**ft_split(char const *s, char c);
 
+void		*ft_fre(char **str, int i);
+void		ft_puterror(void);
 void		freee(t_stack *stack);
 void		stack(t_stack **b);
 int			stack_len(t_stack **stack);

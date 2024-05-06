@@ -6,11 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 22:25:15 by istili            #+#    #+#             */
-/*   Updated: 2024/04/26 11:42:34 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/27 14:26:23 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "mandatory.h"
 
 static t_node	*find_last(t_stack *stack)
 {

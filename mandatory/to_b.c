@@ -6,11 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 22:31:46 by istili            #+#    #+#             */
-/*   Updated: 2024/04/19 15:03:42 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/27 14:26:37 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "mandatory.h"
 
 int	max(int a, int b)
 {

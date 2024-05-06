@@ -6,11 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 05:09:34 by istili            #+#    #+#             */
-/*   Updated: 2024/04/26 14:36:48 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/27 18:03:27 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "mandatory.h"
 
 void	sa(t_stack **a)
 {

@@ -6,11 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:56:32 by istili            #+#    #+#             */
-/*   Updated: 2024/04/26 10:54:50 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/06 14:44:52 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "mandatory.h"
 
 static void	swap(int *a, int *b)
 {
@@ -21,7 +22,7 @@ static void	swap(int *a, int *b)
 	*b = tmp;
 }
 
-void	insertion_sort(int *tab, int size) // -9 -7 4 5 8
+void	insertion_sort(int *tab, int size)
 {
 	int	i;
 	int	j;
@@ -48,6 +49,8 @@ int	get_medain(t_stack **stack)
 
 	i = 0;
 	tab = malloc(sizeof(int) * stack_len(stack));
+	if (!tab)
+		ft_puterror();
 	head = (*stack)->head;
 	while (head)
 	{

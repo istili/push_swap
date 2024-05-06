@@ -6,11 +6,20 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 10:59:21 by istili            #+#    #+#             */
-/*   Updated: 2024/04/27 10:55:18 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/27 13:53:20 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
+
+void	stack(t_stack **b)
+{
+	*b = malloc(sizeof(t_stack));
+	if (!b)
+		return ;
+	(*b)->head = NULL;
+	(*b)->tail = NULL;
+}
 
 void	freee(t_stack *stack)
 {
@@ -35,7 +44,7 @@ void	freee(t_stack *stack)
 	free(stack);
 }
 
-int	ft_strcmp(const char *s1, const char *s2)
+static int	ft_strcmp(const char *s1, const char *s2)
 {
 	int	i;
 
@@ -45,13 +54,10 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return ((int)s1[i] - (int)s2[i]);
 }
 
-void	stack(t_stack **b)
+void	ft_puterror(void)
 {
-	*b = malloc(sizeof(t_stack));
-	if (!b)
-		return ;
-	(*b)->head = NULL;
-	(*b)->tail = NULL;
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 void	ft_cmp(t_stack **a, t_stack **b, char *line)
@@ -79,8 +85,5 @@ void	ft_cmp(t_stack **a, t_stack **b, char *line)
 	else if (!ft_strcmp(line, "pb\n"))
 		pb(a, b);
 	else
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+		ft_puterror();
 }

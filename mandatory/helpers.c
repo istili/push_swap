@@ -6,11 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:32:02 by istili            #+#    #+#             */
-/*   Updated: 2024/04/25 17:37:32 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/27 18:02:56 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "mandatory.h"
 
 int	ft_index(t_node *head, t_node *node)
 {
@@ -65,4 +66,10 @@ t_node	*find_max(t_stack *stack)
 		head = head->next;
 	}
 	return (max_node);
+}
+
+void	ft_puterror(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
 }

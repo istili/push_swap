@@ -6,11 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 20:23:37 by istili            #+#    #+#             */
-/*   Updated: 2024/04/09 00:08:43 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/27 19:56:29 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "mandatory.h"
 
 static void	reverse(t_stack **stack)
 {
@@ -32,18 +33,24 @@ static void	reverse(t_stack **stack)
 
 void	rra(t_stack **a)
 {
+	if (stack_len(a) < 2)
+		return ;
 	reverse(a);
 	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack **b)
 {
+	if (stack_len(b) < 2)
+		return ;
 	reverse(b);
 	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack **a, t_stack **b)
 {
+	if (stack_len(a) < 2 && stack_len(b) < 2)
+		return ;
 	if (a)
 		reverse(a);
 	if (b)

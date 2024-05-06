@@ -6,11 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 22:10:46 by istili            #+#    #+#             */
-/*   Updated: 2024/04/25 20:07:15 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/27 14:20:22 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "mandatory.h"
 
 static int	check_sign(const char *str, int i)
 {
@@ -50,10 +51,7 @@ int	ft_atoi(const char *str)
 		nb = nb * 10 + str[i++] - '0';
 		if ((nb > INT_MAX && sign == 1)
 			|| (nb > -(long)(INT_MIN) && sign == -1))
-		{
-			write(2, "Error\n", 6);
-			exit(1);
-		}
+			ft_puterror();
 	}
 	return (nb * sign);
 }

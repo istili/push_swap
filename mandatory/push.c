@@ -6,11 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 01:37:30 by istili            #+#    #+#             */
-/*   Updated: 2024/04/26 17:57:57 by istili           ###   ########.fr       */
+/*   Updated: 2024/04/27 14:26:10 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "mandatory.h"
 
 void	pa(t_stack **a, t_stack **b)
 {
