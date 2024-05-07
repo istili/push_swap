@@ -6,19 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:16:42 by istili            #+#    #+#             */
-/*   Updated: 2024/04/28 13:11:08 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/07 19:44:47 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "mandatory.h"
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
 
 size_t	ft_strlen(const char *s)
 {
@@ -49,25 +42,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		dst[x] = 0;
 	}
 	return (slen);
-}
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	size_t			i;
-	unsigned char	*s;
-	unsigned char	*d;
-
-	s = (unsigned char *)src;
-	d = (unsigned char *)dst;
-	i = 0;
-	if (!dst && !src)
-		return (0);
-	while (i < n)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (dst);
 }
 
 char	*ft_strjoin(char *line, char *bufr)

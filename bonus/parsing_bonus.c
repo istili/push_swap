@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 11:37:56 by istili            #+#    #+#             */
-/*   Updated: 2024/04/27 11:26:00 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/07 19:46:15 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	sorted(t_stack **a)
 	return (1);
 }
 
-void	add_node(t_stack *a, int data)
+static void	add_node(t_stack *a, int data)
 {
 	t_node	*node;
 	t_node	*last_node;

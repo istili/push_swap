@@ -6,13 +6,13 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 11:00:27 by istili            #+#    #+#             */
-/*   Updated: 2024/04/27 20:24:17 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/07 19:13:45 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	main_checks(char **split_args)
+static void	main_checks(char **split_args)
 {
 	int	i;
 
@@ -30,7 +30,7 @@ void	main_checks(char **split_args)
 		ft_puterror();
 }
 
-void	main_helper(t_stack **a, t_stack **b, char **split_args)
+static void	main_helper(t_stack **a, t_stack **b, char **split_args)
 {
 	char	*line;
 
@@ -55,7 +55,7 @@ void	main_helper(t_stack **a, t_stack **b, char **split_args)
 		write(1, "KO\n", 3);
 }
 
-void	init_args(int *i, t_stack **a, t_stack **b, char **arr)
+static void	init_args(int *i, t_stack **a, t_stack **b, char **arr)
 {
 	*i = 1;
 	*a = NULL;
@@ -90,13 +90,3 @@ int	main(int ac, char **av)
 	freee(a);
 	freee(b);
 }
-
-// atexit(f);
-// void	f(void)
-// {
-// 	// int	pid = getpid();
-// 	// char	*str = strdup("leaks ");
-// 	// char *str2 = ft_strjoin(str, ft_itoa(pid));
-// 	// system(str2);
-// 	system("leaks push_swap");
-// }

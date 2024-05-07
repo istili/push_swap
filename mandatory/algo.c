@@ -6,14 +6,14 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 04:33:37 by istili            #+#    #+#             */
-/*   Updated: 2024/04/27 14:19:44 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/07 19:22:53 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "mandatory.h"
 
-void	make_it_top(t_stack	**stack)
+static void	make_it_top(t_stack	**stack)
 {
 	t_node	*head;
 	t_node	*tail;
@@ -21,7 +21,7 @@ void	make_it_top(t_stack	**stack)
 
 	head = (*stack)->head;
 	tail = (*stack)->tail;
-	min = find_smal(stack);
+	min = find_small(stack);
 	if (min == head->next->data)
 	{
 		sa(stack);

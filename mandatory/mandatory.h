@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 14:06:24 by istili            #+#    #+#             */
-/*   Updated: 2024/04/27 18:20:03 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/07 19:20:42 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 t_stack	*stack_init(t_stack *a, char **argv);
 int		sorted(t_stack **stack);
 int		stack_len(t_stack **stack);
-void	print_stack(t_stack **stack);
 void	remove_first(t_stack **stack);
 void	add_last(t_stack *stack, int val);
 void	add_bigging(t_stack **stack, int val);

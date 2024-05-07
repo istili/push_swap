@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 22:05:19 by istili            #+#    #+#             */
-/*   Updated: 2024/04/27 18:15:46 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/07 19:37:28 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,7 @@ void	stack(t_stack **b);
 t_node	*find_max(t_stack *stack);
 t_node	*find_min(t_stack *stack);
 int		ft_index(t_node *head, t_node *node);
-int		find_smal(t_stack **stack);
-
-void	count_act(t_stack **a, t_stack **b);
-int		find_target(t_stack **b, int data);
-void	do_rr(t_stack **a, t_stack **b, t_node *cheapest);
-void	do_rrr(t_stack **a, t_stack **b, t_node *cheapest);
-void	do_rarb(t_stack **a, t_stack **b, t_node *cheapest);
+int		find_small(t_stack **stack);
 
 void	count_act_a(t_stack **a, t_stack **b);
 int		find_target_a(t_stack **a, int data);

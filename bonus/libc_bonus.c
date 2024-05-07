@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libc.c                                             :+:      :+:    :+:   */
+/*   libc_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 11:29:51 by istili            #+#    #+#             */
-/*   Updated: 2024/04/26 11:33:26 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/07 19:44:42 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,25 +48,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		dst[x] = 0;
 	}
 	return (slen);
-}
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	size_t			i;
-	unsigned char	*s;
-	unsigned char	*d;
-
-	s = (unsigned char *)src;
-	d = (unsigned char *)dst;
-	i = 0;
-	if (!dst && !src)
-		return (0);
-	while (i < n)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (dst);
 }
 
 char	*ft_strjoin(char *line, char *bufr)

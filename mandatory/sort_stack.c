@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 20:40:33 by istili            #+#    #+#             */
-/*   Updated: 2024/04/27 14:26:16 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/07 19:41:59 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,6 @@ t_node	*find_cheapest(t_stack **a)
 		head_a = head_a->next;
 	}
 	return (cheapest);
-}
-
-void	push_cheapest(t_stack **a, t_stack **b, t_node *cheapest)
-{
-	if (cheapest->act == RARB)
-		do_rarb(a, b, cheapest);
-	else if (cheapest->act == RR)
-		do_rr(a, b, cheapest);
-	else if (cheapest->act == RRR)
-		do_rrr(a, b, cheapest);
 }
 
 void	push_cheapest_a(t_stack **a, t_stack **b, t_node *cheapest)

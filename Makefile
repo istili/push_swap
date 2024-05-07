@@ -6,7 +6,7 @@
 #    By: istili <istili@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 09:53:55 by istili            #+#    #+#              #
-#    Updated: 2024/04/27 18:19:40 by istili           ###   ########.fr        #
+#    Updated: 2024/05/07 19:36:44 by istili           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ HEADER_BONUS	=	bonus/push_swap_bonus.h
 FILE			=	mandatory/algo.c mandatory/ft_atoi.c mandatory/ft_split.c mandatory/helpers.c \
 		mandatory/libc.c mandatory/main.c mandatory/push.c mandatory/reverse.c mandatory/rotate.c \
 		mandatory/chunks.c mandatory/sort_stack.c mandatory/stack_init.c mandatory/swap.c mandatory/to_a.c \
-		mandatory/to_b.c mandatory/utils.c mandatory/stack1.c mandatory/stack2.c mandatory/more_utils.c mandatory/parsing.c\
+		mandatory/utils.c	mandatory/stack2.c mandatory/more_utils.c mandatory/parsing.c\
 
 FILE_BONUS		=	bonus/cheker_bonus.c	bonus/parsing_bonus.c	bonus/reverse_bonus.c \
 		bonus/ft_atoi_bonus.c	bonus/libc_bonus.c	bonus/checks_bonus.c	bonus/rotate_bonus.c \

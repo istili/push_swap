@@ -6,13 +6,13 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 17:54:08 by istili            #+#    #+#             */
-/*   Updated: 2024/04/27 10:55:42 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/07 19:46:41 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	add_bigging(t_stack **stack, int val)
+static void	add_bigging(t_stack **stack, int val)
 {
 	t_node	*new_node;
 
@@ -30,7 +30,7 @@ void	add_bigging(t_stack **stack, int val)
 	(*stack)->head = new_node;
 }
 
-void	remove_first(t_stack **stack)
+static void	remove_first(t_stack **stack)
 {
 	t_node	*ptr;
 

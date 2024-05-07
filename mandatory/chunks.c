@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:56:32 by istili            #+#    #+#             */
-/*   Updated: 2024/05/06 14:44:52 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/07 19:19:24 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	swap(int *a, int *b)
 	*b = tmp;
 }
 
-void	insertion_sort(int *tab, int size)
+static void	insertion_sort(int *tab, int size)
 {
 	int	i;
 	int	j;
@@ -63,7 +63,7 @@ int	get_medain(t_stack **stack)
 	return (medain);
 }
 
-void	make_act(t_stack **a, t_stack **b, int i, int j)
+static void	make_act(t_stack **a, t_stack **b, int i, int j)
 {
 	if (i < j)
 	{
