@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 11:37:56 by istili            #+#    #+#             */
-/*   Updated: 2024/05/07 19:46:15 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/23 18:20:04 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	add_node(t_stack *a, int data)
 
 	node = malloc(sizeof(t_node));
 	if (!node)
-		return ;
+		ft_puterror();
 	node->next = NULL;
 	node->data = data;
 	last_node = find_last(a);

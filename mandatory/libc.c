@@ -6,12 +6,38 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:16:42 by istili            #+#    #+#             */
-/*   Updated: 2024/05/07 19:44:47 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/24 17:25:03 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "mandatory.h"
+
+void	stack(t_stack **b)
+{
+	*b = malloc(sizeof(t_stack));
+	if (!(*b))
+		ft_puterror();
+	(*b)->head = NULL;
+	(*b)->tail = NULL;
+}
+
+int	stack_len(t_stack **stack)
+{
+	int		count;
+	t_node	*head;
+
+	if ((*stack)->head == NULL)
+		return (0);
+	head = (*stack)->head;
+	count = 0;
+	while (head)
+	{
+		count++;
+		head = head->next;
+	}
+	return (count);
+}
 
 size_t	ft_strlen(const char *s)
 {

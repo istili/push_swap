@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 10:59:21 by istili            #+#    #+#             */
-/*   Updated: 2024/05/07 19:18:20 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/23 18:18:40 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	stack(t_stack **b)
 {
 	*b = malloc(sizeof(t_stack));
 	if (!b)
-		return ;
+		ft_puterror();
 	(*b)->head = NULL;
 	(*b)->tail = NULL;
 }

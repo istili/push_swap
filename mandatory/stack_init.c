@@ -6,12 +6,32 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 22:25:15 by istili            #+#    #+#             */
-/*   Updated: 2024/04/27 14:26:23 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/24 14:00:48 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "mandatory.h"
+
+void	add_bigging(t_stack **stack, int val)
+{
+	t_node	*new_node;
+
+	new_node = malloc(sizeof(t_node));
+	if (!new_node)
+		ft_puterror();
+	new_node->data = val;
+	new_node->prv = NULL;
+	new_node->next = NULL;
+	new_node->act = -1;
+	new_node->count = -1;
+	new_node->next = (*stack)->head;
+	if ((*stack)->head)
+		(*stack)->head->prv = new_node;
+	else
+		(*stack)->tail = new_node;
+	(*stack)->head = new_node;
+}
 
 static t_node	*find_last(t_stack *stack)
 {
@@ -32,7 +52,7 @@ static void	add_node(t_stack *stack, int nbr)
 
 	node = malloc(sizeof(t_node));
 	if (!node)
-		return ;
+		ft_puterror();
 	node->next = NULL;
 	node->data = nbr;
 	node->act = -1;
@@ -41,47 +61,6 @@ static void	add_node(t_stack *stack, int nbr)
 	last_node->next = node;
 	node->prv = last_node;
 	stack->tail = node;
-}
-
-void	add_bigging(t_stack **stack, int val)
-{
-	t_node	*new_node;
-
-	new_node = malloc(sizeof(t_node));
-	if (!new_node)
-		return ;
-	new_node->data = val;
-	new_node->prv = NULL;
-	new_node->next = NULL;
-	new_node->act = -1;
-	new_node->count = -1;
-	new_node->next = (*stack)->head;
-	if ((*stack)->head)
-		(*stack)->head->prv = new_node;
-	else
-		(*stack)->tail = new_node;
-	(*stack)->head = new_node;
-}
-
-void	freee(t_stack *stack)
-{
-	t_node	*head;
-	t_node	*tail;
-
-	head = stack->head;
-	tail = stack->tail;
-	if (head != NULL)
-	{
-		while (head->next != NULL)
-		{
-			head = head->next;
-			free(head->prv);
-		}
-	}
-	free(head);
-	head = NULL;
-	tail = NULL;
-	free(stack);
 }
 
 t_stack	*stack_init(t_stack *a, char **argv)
@@ -94,6 +73,8 @@ t_stack	*stack_init(t_stack *a, char **argv)
 	if (!a)
 		return (NULL);
 	a->head = malloc(sizeof(t_node));
+	if (!a->head)
+		return (NULL);
 	a->head->next = NULL;
 	a->head->prv = NULL;
 	a->head->data = ft_atoi(argv[i++]);

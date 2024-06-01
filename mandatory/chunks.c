@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:56:32 by istili            #+#    #+#             */
-/*   Updated: 2024/05/07 19:19:24 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/24 16:58:12 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ static void	insertion_sort(int *tab, int size)
 	}
 }
 
-int	get_medain(t_stack **stack)
+int	get_median(t_stack **stack)
 {
 	int		*tab;
 	t_node	*head;
 	int		i;
-	int		medain;
+	int		median;
 
 	i = 0;
 	tab = malloc(sizeof(int) * stack_len(stack));
@@ -58,9 +58,9 @@ int	get_medain(t_stack **stack)
 		head = head->next;
 	}
 	insertion_sort(tab, i);
-	medain = tab[i / 2];
+	median = tab[i / 2];
 	free(tab);
-	return (medain);
+	return (median);
 }
 
 static void	make_act(t_stack **a, t_stack **b, int i, int j)
@@ -78,7 +78,7 @@ static void	make_act(t_stack **a, t_stack **b, int i, int j)
 	pb(a, b);
 }
 
-void	push_to_b(t_stack **a, t_stack **b, int medain)
+void	push_to_b(t_stack **a, t_stack **b, int median)
 {
 	t_node	*head_a;
 	t_node	*tail;
@@ -89,12 +89,12 @@ void	push_to_b(t_stack **a, t_stack **b, int medain)
 	tail = (*a)->tail;
 	i = 0;
 	j = 1;
-	while (head_a && head_a->data > medain)
+	while (head_a && head_a->data > median)
 	{
 		i++;
 		head_a = head_a->next;
 	}
-	while (tail && tail->data > medain)
+	while (tail && tail->data > median)
 	{
 		j++;
 		tail = tail->prv;

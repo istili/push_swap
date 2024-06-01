@@ -1,49 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 00:11:49 by istili            #+#    #+#             */
-/*   Updated: 2024/04/27 18:03:33 by istili           ###   ########.fr       */
+/*   Created: 2024/05/24 13:57:52 by istili            #+#    #+#             */
+/*   Updated: 2024/05/24 16:42:18 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "mandatory.h"
 
-int	sorted(t_stack **stack)
+void	free_array(char **arr)
 {
-	t_node	*cur;
+	int	i;
 
-	cur = (*stack)->head;
-	if (!cur || !cur->next)
-		return (1);
-	while (cur->next)
-	{
-		if (cur->data > cur->next->data)
-			return (0);
-		cur = cur->next;
-	}
-	return (1);
+	i = 0;
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
 }
 
-int	stack_len(t_stack **stack)
+void	freee(t_stack *stack)
 {
-	int		count;
 	t_node	*head;
+	t_node	*tail;
 
-	if ((*stack)->head == NULL)
-		return (0);
-	head = (*stack)->head;
-	count = 0;
-	while (head)
+	head = stack->head;
+	tail = stack->tail;
+	if (head != NULL)
 	{
-		count++;
-		head = head->next;
+		while (head->next != NULL)
+		{
+			head = head->next;
+			free(head->prv);
+		}
 	}
-	return (count);
+	free(head);
+	head = NULL;
+	tail = NULL;
+	free(stack);
 }
 
 void	remove_first(t_stack **stack)
@@ -58,22 +56,4 @@ void	remove_first(t_stack **stack)
 		if ((*stack)->head)
 			(*stack)->head->prv = NULL;
 	}
-}
-
-t_node	*find_head(t_node *head)
-{
-	if (head == NULL)
-		return (NULL);
-	while (head->next)
-		head = head->next;
-	return (head);
-}
-
-void	stack(t_stack **b)
-{
-	*b = malloc(sizeof(t_stack));
-	if (!(*b))
-		return ;
-	(*b)->head = NULL;
-	(*b)->tail = NULL;
 }

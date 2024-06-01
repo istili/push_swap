@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 04:33:37 by istili            #+#    #+#             */
-/*   Updated: 2024/05/07 19:22:53 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/24 17:05:28 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,18 @@ static void	make_it_top(t_stack	**stack)
 			ra(stack);
 }
 
-void	sort_for(t_stack **a, t_stack **b)
+void	sort_four(t_stack **a, t_stack **b)
 {
 	t_node	*head;
 
 	head = (*a)->head;
 	make_it_top(a);
 	pb(a, b);
-	easy(a);
+	sort_three(a);
 	pa(a, b);
 }
 
-void	sort_fiv(t_stack **a, t_stack **b)
+void	sort_five(t_stack **a, t_stack **b)
 {
 	t_node	*head;
 
@@ -55,12 +55,12 @@ void	sort_fiv(t_stack **a, t_stack **b)
 	pb(a, b);
 	make_it_top(a);
 	pb(a, b);
-	easy(a);
+	sort_three(a);
 	pa(a, b);
 	pa(a, b);
 }
 
-static void	check(t_stack **a, t_node *head)
+static void	sort_three_helper(t_stack **a, t_node *head)
 {
 	if (head->data < head->next->data
 		&& head->data < head->next->next->data
@@ -78,7 +78,7 @@ static void	check(t_stack **a, t_node *head)
 	}
 }
 
-void	easy(t_stack **a)
+void	sort_three(t_stack **a)
 {
 	t_node	*head;
 
@@ -101,5 +101,5 @@ void	easy(t_stack **a)
 		ra(a);
 		return ;
 	}
-	check(a, head);
+	sort_three_helper(a, head);
 }

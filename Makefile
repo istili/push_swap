@@ -6,14 +6,18 @@
 #    By: istili <istili@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 09:53:55 by istili            #+#    #+#              #
-#    Updated: 2024/05/07 19:36:44 by istili           ###   ########.fr        #
+#    Updated: 2024/05/24 17:42:39 by istili           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	push_swap
+
 NAME_BONUS		=	checker
+
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror
+
+CFLAGS			=	-Wall -Wextra -Werror -g
+
 RM				=	rm -rf
 
 HEADER			=	mandatory/push_swap.h
@@ -22,15 +26,15 @@ HEADER_2		=	mandatory/mandatory.h
 
 HEADER_BONUS	=	bonus/push_swap_bonus.h
 
-FILE			=	mandatory/algo.c mandatory/ft_atoi.c mandatory/ft_split.c mandatory/helpers.c \
-		mandatory/libc.c mandatory/main.c mandatory/push.c mandatory/reverse.c mandatory/rotate.c \
-		mandatory/chunks.c mandatory/sort_stack.c mandatory/stack_init.c mandatory/swap.c mandatory/to_a.c \
-		mandatory/utils.c	mandatory/stack2.c mandatory/more_utils.c mandatory/parsing.c\
+FILE			=	mandatory/sort_small.c mandatory/ft_atoi.c mandatory/ft_split.c mandatory/helpers.c \
+		mandatory/libc.c mandatory/main.c mandatory/action_push.c mandatory/action_reverse.c mandatory/action_rotate.c \
+		mandatory/action_swap.c mandatory/free.c mandatory/chunks.c mandatory/sort_stack.c mandatory/stack_init.c mandatory/to_a.c \
+		mandatory/main_utils.c	mandatory/stack.c mandatory/sort_utils.c mandatory/ac_checks.c\
 
-FILE_BONUS		=	bonus/cheker_bonus.c	bonus/parsing_bonus.c	bonus/reverse_bonus.c \
+FILE_BONUS		=	bonus/cmp_bonus.c	bonus/parsing_bonus.c	bonus/reverse_bonus.c \
 		bonus/ft_atoi_bonus.c	bonus/libc_bonus.c	bonus/checks_bonus.c	bonus/rotate_bonus.c \
 		bonus/ft_split_bonus.c	bonus/main_bonus.c		bonus/swap_bonus.c			bonus/push_bonus.c\
-		bonus/get_next_line/get_next_line.c		bonus/get_next_line/get_next_line_utils.c \
+		bonus/main_utils_bonus.c bonus/get_next_line/get_next_line.c		bonus/get_next_line/get_next_line_utils.c \
 
 OBJS			=	$(FILE:.c=.o)
 

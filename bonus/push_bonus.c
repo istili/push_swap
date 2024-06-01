@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 17:54:08 by istili            #+#    #+#             */
-/*   Updated: 2024/05/07 19:46:41 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/23 18:20:25 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	add_bigging(t_stack **stack, int val)
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
-		return ;
+		ft_puterror();
 	new_node->data = val;
 	new_node->prv = NULL;
 	new_node->next = NULL;

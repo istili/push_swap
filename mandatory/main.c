@@ -6,93 +6,37 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 22:18:02 by istili            #+#    #+#             */
-/*   Updated: 2024/05/07 19:39:12 by istili           ###   ########.fr       */
+/*   Updated: 2024/06/01 14:15:04 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "mandatory.h"
 
-static void	main_sort(t_stack **a, t_stack **b)
+void	f(void)
 {
-	if (!sorted(a))
-	{
-		if (stack_len(a) == 2)
-			sa(a);
-		else if (stack_len(a) == 3)
-			easy(a);
-		else if (stack_len(a) == 4)
-			sort_for(a, b);
-		else if (stack_len(a) == 5)
-			sort_fiv(a, b);
-		else
-			sort_stack(a, b);
-	}
-}
-
-static void	main_checks(char **split_args)
-{
-	int	i;
-
-	i = 0;
-	while (split_args[i])
-	{
-		if (args(split_args[i]) == 0)
-		{
-			free_array(split_args);
-			ft_puterror();
-		}
-		i++;
-	}
-	if (split_args[0] == 0)
-		ft_puterror();
-}
-
-static void	main_helper(t_stack **a, t_stack **b, char **split_args)
-{
-	*a = stack_init(*a, split_args);
-	stack(b);
-	if (check_double(a) == 0)
-	{
-		freee(*b);
-		freee(*a);
-		ft_puterror();
-	}
-}
-
-static void	init__main_args(int *i, t_stack **a, t_stack **b, char **arr)
-{
-	*i = 1;
-	*a = NULL;
-	*b = NULL;
-	*arr = NULL;
+	system("leaks push_swap");
 }
 
 int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		i;
 	char	**split_args;
 	char	*arr;
 
-	init__main_args(&i, &a, &b, &arr);
-	if (ac == 1)
-		return (0);
-	while (ac > i)
-	{
-		if (av[i][0] == '\0' || is_full_space(av[i]))
-		{
-			free(arr);
-			ft_puterror();
-		}
-		arr = ft_strjoin(arr, av[i++]);
-	}
+	atexit(f);
+	a = NULL;
+	b = NULL;
+	arr = NULL;
+	split_args = NULL;
+	helper(ac, av, &arr);
 	split_args = ft_split(arr, ' ');
+	if (!split_args)
+		ft_puterror();
 	free(arr);
-	main_checks(split_args);
 	main_helper(&a, &b, split_args);
-	main_sort(&a, &b);
+	sort(&a, &b);
 	freee(b);
 	freee(a);
 }

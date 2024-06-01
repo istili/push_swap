@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack2.c                                           :+:      :+:    :+:   */
+/*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 01:31:21 by istili            #+#    #+#             */
-/*   Updated: 2024/04/27 14:27:02 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/24 16:36:18 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	do_rr_a(t_stack **a, t_stack **b, t_node *cheapest)
 	pa(a, b);
 }
 
-static void	ft_continue(t_stack **a, t_node *cheapest)
+static void	ft_continue_rarb(t_stack **a, t_node *cheapest)
 {
 	if (find_target_a(a, cheapest->data) > stack_len(a) / 2)
 	{
@@ -110,6 +110,6 @@ void	do_rarb_a(t_stack **a, t_stack **b, t_node *cheapest)
 			rb(b);
 		}
 	}
-	ft_continue(a, cheapest);
+	ft_continue_rarb(a, cheapest);
 	pa(a, b);
 }

@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 14:06:24 by istili            #+#    #+#             */
-/*   Updated: 2024/05/07 19:20:42 by istili           ###   ########.fr       */
+/*   Updated: 2024/05/24 17:44:52 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <limits.h>
 # include <stdlib.h>
 
+void	helper(int ac, char **av, char **arr);
+void	main_helper(t_stack **a, t_stack **b, char **split_args);
 t_stack	*stack_init(t_stack *a, char **argv);
 int		sorted(t_stack **stack);
 int		stack_len(t_stack **stack);
