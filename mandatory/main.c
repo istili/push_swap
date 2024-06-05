@@ -6,17 +6,12 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 22:18:02 by istili            #+#    #+#             */
-/*   Updated: 2024/06/01 14:15:04 by istili           ###   ########.fr       */
+/*   Updated: 2024/06/04 14:54:47 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "mandatory.h"
-
-void	f(void)
-{
-	system("leaks push_swap");
-}
 
 int	main(int ac, char **av)
 {
@@ -25,7 +20,6 @@ int	main(int ac, char **av)
 	char	**split_args;
 	char	*arr;
 
-	atexit(f);
 	a = NULL;
 	b = NULL;
 	arr = NULL;

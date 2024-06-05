@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 11:00:27 by istili            #+#    #+#             */
-/*   Updated: 2024/06/04 16:13:28 by istili           ###   ########.fr       */
+/*   Created: 2023/11/25 08:46:50 by istili            #+#    #+#             */
+/*   Updated: 2024/06/03 13:06:22 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	main(int ac, char **av)
-{
-	t_stack	*a;
-	t_stack	*b;
-	char	**split_args;
-	char	*arr;
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-	a = NULL;
-	b = NULL;
-	arr = NULL;
-	split_args = helper(ac, av, &arr);
-	free(arr);
-	main_checks(split_args);
-	main_helper(&a, &b, split_args);
-	freee(a);
-	freee(b);
-}
+size_t	len(char *str);
+char	*ft_join(char *s1, char *s2);
+int		check_str(char *str);
+char	*get_next_line(int fd);
+void	*ft_calloc(size_t count, size_t size);
+
+#endif

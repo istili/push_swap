@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 15:47:44 by istili            #+#    #+#             */
-/*   Updated: 2024/05/24 17:44:01 by istili           ###   ########.fr       */
+/*   Updated: 2024/06/04 16:13:24 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_stack
 
 void		main_checks(char **split_args);
 void		main_helper(t_stack **a, t_stack **b, char **split_args);
-void		helper(int ac, char **av, char **split_args, char **arr);
+char		**helper(int ac, char **av, char **arr);
 void		*ft_free(char **str, int i);
 int			check_double(t_stack **stack);
 int			is_full_space(char *s);

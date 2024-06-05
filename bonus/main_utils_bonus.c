@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_utils.c                                       :+:      :+:    :+:   */
+/*   main_utils_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:39:18 by istili            #+#    #+#             */
-/*   Updated: 2024/05/24 17:40:00 by istili           ###   ########.fr       */
+/*   Updated: 2024/06/04 16:13:37 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,18 @@ void	main_helper(t_stack **a, t_stack **b, char **split_args)
 		write(1, "KO\n", 3);
 }
 
-void	helper(int ac, char **av, char **split_args, char **arr)
+char	**helper(int ac, char **av, char **arr)
 {
-	int	i;
+	int		i;
+	char	**split_args;
 
 	i = 1;
 	if (ac == 1)
-		ft_puterror();
+		exit(0);
 	while (ac > i)
 	{
 		if (av[i][0] == '\0' || is_full_space(av[i]))
-		{
-			free(arr);
 			ft_puterror();
-		}
 		*arr = ft_strjoin(*arr, av[i++]);
 		if (!*arr)
 			ft_puterror();
@@ -76,4 +74,5 @@ void	helper(int ac, char **av, char **split_args, char **arr)
 	split_args = ft_split(*arr, ' ');
 	if (!split_args)
 		ft_puterror();
+	return (split_args);
 }

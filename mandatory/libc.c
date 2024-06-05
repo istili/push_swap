@@ -6,7 +6,7 @@
 /*   By: istili <istili@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:16:42 by istili            #+#    #+#             */
-/*   Updated: 2024/05/24 17:25:03 by istili           ###   ########.fr       */
+/*   Updated: 2024/06/04 14:36:28 by istili           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,8 @@ char	*ft_strjoin(char *line, char *bufr)
 	}
 	j = -1;
 	s[i++] = ' ';
-	while (bufr != 0 && bufr[++j] != '\0' && bufr[j] != '\n')
+	while (bufr != 0 && bufr[++j] != '\0')
 		s[i + j] = bufr[j];
-	if (bufr != 0 && bufr[j] == '\n')
-		s[i + j++] = '\n';
 	s[i + j] = '\0';
 	if (line)
 		free(line);

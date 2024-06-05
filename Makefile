@@ -6,7 +6,7 @@
 #    By: istili <istili@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 09:53:55 by istili            #+#    #+#              #
-#    Updated: 2024/05/24 17:42:39 by istili           ###   ########.fr        #
+#    Updated: 2024/06/04 16:08:42 by istili           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME_BONUS		=	checker
 
 CC				=	cc
 
-CFLAGS			=	-Wall -Wextra -Werror -g
+CFLAGS			=	-Wall -Wextra -Werror -fsanitize=address -ggdb3
 
 RM				=	rm -rf
 
@@ -24,7 +24,7 @@ HEADER			=	mandatory/push_swap.h
 
 HEADER_2		=	mandatory/mandatory.h
 
-HEADER_BONUS	=	bonus/push_swap_bonus.h
+HEADER_BONUS	=	bonus/push_swap_bonus.h bonus/get_next_line/get_next_line.h
 
 FILE			=	mandatory/sort_small.c mandatory/ft_atoi.c mandatory/ft_split.c mandatory/helpers.c \
 		mandatory/libc.c mandatory/main.c mandatory/action_push.c mandatory/action_reverse.c mandatory/action_rotate.c \
@@ -43,7 +43,7 @@ OBJS_BONUS		=	$(FILE_BONUS:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	$(CC) -fsanitize=address -ggdb3 $(OBJS) -o $(NAME)
 
 %.o : %.c $(HEADER) $(HEADER_2) $(HEADER_BONUS)
 	$(CC) $(CFLAGS) -c $< -o $@
